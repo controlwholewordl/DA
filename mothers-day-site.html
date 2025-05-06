@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Mother's Day</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.pinimg.com/originals/80/00/72/800072e984aa3a0e7715d2f72b8f3f36.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      text-align: center;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      margin: 10vh auto;
+      border-radius: 20px;
+      max-width: 600px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      color: #ffb6c1;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    button, .share-btn {
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    button:hover, .share-btn:hover {
+      background-color: #e05297;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .petal {
+      position: fixed;
+      top: -50px;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Emoji_u1f338.svg/32px-Emoji_u1f338.svg.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Happy Mother's Day 💐</h1>
+    <p>Dear Mom,<br>You're my sunshine on rainy days, my strength when I'm weak, and my forever hero. Thank you for everything. 💖</p>
+    
+    <div class="btn-group">
+      <button onclick="sendLove()">Send Love 💌</button>
+      <a class="share-btn" href="https://wa.me/?text=Happy%20Mother's%20Day!%20Sending%20love%20to%20all%20the%20wonderful%20moms%20out%20there.%20💐%20💖" target="_blank">Share on WhatsApp</a>
+      <a class="share-btn" href="https://www.instagram.com/" target="_blank">Share on Instagram</a>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <script>
+    function sendLove() {
+      alert("Love sent to Mom! 💖 She deserves the world!");
+    }
+
+    function createPetal() {
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 10000);
+    }
+
+    setInterval(createPetal, 300);
+  </script>
+</body>
+</html>
